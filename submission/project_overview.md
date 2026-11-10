@@ -3,7 +3,7 @@
 **Industry:** Electric utilities (fictional demonstration)  
 **Audience:** Residents reporting a power interruption or seeking safety guidance  
 **Primary channel:** eGain AI Agent customer self-service  
-**Distinctive capability:** impact-aware triage that surfaces immediate safety needs before routine reporting, collects only a broad demo service area and issue category, and hands urgent or uncertain cases to a person.
+**Distinctive capability:** impact-aware triage that surfaces immediate safety needs before routine reporting, collects only a broad demo service area and issue category, and directs urgent hazards to local emergency services while presenting clearly fictional, unmonitored contact options for non-urgent follow-up.
 
 ## Customer problem
 

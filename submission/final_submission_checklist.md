@@ -11,14 +11,19 @@
 
 ## Required before submission
 
+Official deadline: **November 15, 2026 at 11:59 PM Pacific Time** (November 16 at 1:29 PM India time). Confirm the live rules page before the deadline in case the organizer changes it: https://www.egain.com/ai-agent-hackathon/
+
+Official form: https://www.egain.com/ai-agent-hackathon-project-submission/
+
 - [x] Local API test suite and Docker smoke test completed (see testing report; rerun before final hand-in if code changes).
 - [x] Provision persistent cloud Postgres and deploy the FastAPI app on Vercel; live health reports `report_store: configured`.
 - [x] Connect the synthetic report API through eGain Custom APIs; successful eGain calls returned receipts `GG-E8552A6085` and `GG-B5C218F450`.
-- [ ] Complete remaining eGain behavior checks: confirmation/decline, invalid or missing fields, action failure, live-status deferral, medical/accessibility, and safety response quality.
+- [ ] In eGain, verify a customer report intent is connected to the process/action workflow, and that it asks for confirmation before creating a report.
+- [ ] Complete remaining eGain behavior checks: decline, invalid or missing fields, action failure, live-status deferral, medical/accessibility, and safety response quality.
 - [x] Capture the eGain demo URL and public Vercel page URL.
 - [ ] Test the interactive agent through the published Vercel page and record only observed outcomes. API health and synthetic status were verified directly; that does not verify the embedded chat.
 - [ ] Record the one-minute video showing a grounded answer, workflow, actual action if connected, and safety triage.
 - [ ] Add participant/team information, video URL, reviewer instructions, and asset disclosure to the submission form.
-- [ ] Confirm the entry meets eligibility and official submission deadline.
+- [ ] Confirm eligibility and read both submission-form confirmations carefully. Do not affirm workflow testing or intent connection until observed in eGain and the published demo.
 
 **Status:** Core demo is working: the agent, hosted persistent report API, and eGain report action are configured; eGain has returned successful demo report receipts. Submission is not complete until remaining behavior tests are recorded, the published embedded chat is checked, the demo video and form are completed, and eligibility/deadline are confirmed.
