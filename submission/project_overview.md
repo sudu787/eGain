@@ -11,7 +11,7 @@ During a power interruption, people often need two things at once: clear, reliab
 
 ## GridGuide experience
 
-GridGuide uses a small set of original, source-linked safety articles. It can guide a resident through a report workflow and, when connected, create a persistent fictional report in its supporting API. Every receipt clearly says the report was stored only in the demo system. The sample status feed is labeled synthetic and is never described as live.
+GridGuide uses a small set of original, source-linked safety articles. Its eGain Custom API has successfully created persistent fictional reports in the supporting API. Every receipt clearly says the report was stored only in the demo system. The sample status feed is labeled synthetic and is never described as live.
 
 ## Value hypothesis
 
@@ -19,4 +19,4 @@ GridGuide aims to reduce effort for routine outage reporting while making safety
 
 ## Current delivery state
 
-The supporting API, tests, knowledge content, intent/workflow specifications, and submission materials are prepared locally. eGain account configuration, API connectivity, publication, shareable demo URL, and eGain end-to-end test results are pending account access.
+The supporting API, local tests, knowledge content, intent/workflow specifications, and submission materials are prepared. GridGuide is configured in eGain, the hosted report API is reachable with persistent storage, and eGain has returned successful demo report receipts. Remaining work is to test unverified behavior cases and the embedded public chat, record the demo video, and complete the hackathon form and eligibility checks.

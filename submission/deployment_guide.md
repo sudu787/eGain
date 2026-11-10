@@ -12,10 +12,10 @@
 
 The Vercel project serves the demo page at `https://egain-lake.vercel.app/`. The repository exposes FastAPI through root `main.py`; Vercel's Python runtime supports FastAPI.
 
-Before reports can be saved from eGain, provision managed Postgres from Vercel Marketplace (Neon or another Postgres provider), then add its connection string to Vercel as `GRIDGUIDE_DATABASE_URL`. Set a long random `GRIDGUIDE_API_KEY` in Vercel and store the same secret in the eGain Custom API authentication settings. Never commit secrets. Redeploy after setting environment variables. Report writes and lookups fail closed until the persistent database is configured.
+The hosted database and report endpoint are configured. The live `GET https://egain-lake.vercel.app/api/healthz` response reports `report_store: configured`, and eGain has successfully created demo report receipts. Keep the managed Postgres URL in Vercel as `GRIDGUIDE_DATABASE_URL` and the matching bearer secret as `GRIDGUIDE_API_KEY`; retain the secret in eGain's credential store and never commit it.
 
 ## eGain hosted action
 
-In Agentic Studio → Enable Actions → Custom APIs, create a POST action for `https://egain-lake.vercel.app/api/v1/outage-reports`, with JSON request fields `service_area` and `issue_type`, `Content-Type: application/json`, and bearer authentication. Require explicit user confirmation in the report workflow before calling it. Map the successful receipt fields, and treat non-2xx results as failures. Add a separate GET action for `/api/v1/demo/outages` only if sample records are needed; keep their synthetic status label visible.
+In Agentic Studio → Enable Actions → Custom APIs, the POST action for `https://egain-lake.vercel.app/api/v1/outage-reports` is configured with JSON fields `service_area` and `issue_type` and bearer authentication. Successful eGain calls returned receipts. Confirm the report workflow asks for explicit user confirmation before calling it, maps the returned receipt, and treats non-2xx results as failures. The separate `/api/v1/demo/outages` endpoint returns synthetic data only.
 
-Test health, report success, invalid input, bad/missing authentication, idempotent retry, and persistent lookup before describing the action as connected. This hosted API remains a fictional demonstration and is not a real utility integration.
+Health, synthetic status disclosure, and two successful eGain report calls have been observed. Invalid input, bad/missing authentication, idempotent retry from eGain, persistent lookup from eGain, and the public embedded chat still need end-to-end checks. This hosted API remains a fictional demonstration and is not a real utility integration.

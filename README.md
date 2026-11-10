@@ -34,10 +34,10 @@ The same key and same values return the original receipt, preventing an accident
 
 ## eGain status
 
-The GridGuide agent is configured in eGain, and the public demo page is https://egain-lake.vercel.app/. The agent has uploaded knowledge and safety instructions. The hosted report action still needs a persistent database plus an authenticated Custom API connection in eGain.
+The GridGuide agent is configured in eGain, and the public demo page is https://egain-lake.vercel.app/. The agent has uploaded knowledge and safety instructions. The authenticated eGain Custom API report action has returned successful demo receipts, including `GG-E8552A6085` and `GG-B5C218F450`. These are fictional records and are not sent to a utility.
 
 ## Hosted API
 
-The Vercel project can serve this FastAPI app and the static `index.html` page from this repository. Set a managed Postgres connection as `GRIDGUIDE_DATABASE_URL` and a long bearer token as `GRIDGUIDE_API_KEY` in Vercel before enabling report creation. Configure the same bearer token in the eGain Custom API. Do not commit either value. Hosted report writes fail closed until Postgres is configured; Vercel function storage is not used for durable records.
+The Vercel project serves this FastAPI app and the static `index.html` page from this repository. The live health endpoint currently reports `report_store: configured`; the eGain action has successfully created reports. Keep the managed Postgres connection in Vercel as `GRIDGUIDE_DATABASE_URL` and the bearer secret as `GRIDGUIDE_API_KEY`; configure the matching bearer credential in eGain. Do not commit either value. Vercel function storage is not used for durable records.
 
 See [submission/eGain_configuration.md](submission/eGain_configuration.md) for the account checklist and [submission/final_submission_checklist.md](submission/final_submission_checklist.md) for remaining work.

@@ -11,14 +11,14 @@
 
 ## Required before submission
 
-- [ ] Install Python or start Docker Desktop; run the API and local tests.
-- [ ] Provision persistent cloud Postgres and deploy the FastAPI app on Vercel.
-- [ ] Connect the synthetic report API through eGain Custom APIs and configure the confirmation workflow.
-- [ ] Validate the API action and safety behavior in eGain; do not claim any real utility action.
+- [x] Local API test suite and Docker smoke test completed (see testing report; rerun before final hand-in if code changes).
+- [x] Provision persistent cloud Postgres and deploy the FastAPI app on Vercel; live health reports `report_store: configured`.
+- [x] Connect the synthetic report API through eGain Custom APIs; successful eGain calls returned receipts `GG-E8552A6085` and `GG-B5C218F450`.
+- [ ] Complete remaining eGain behavior checks: confirmation/decline, invalid or missing fields, action failure, live-status deferral, medical/accessibility, and safety response quality.
 - [x] Capture the eGain demo URL and public Vercel page URL.
-- [ ] Test all workflows in Test AI Agent and through the published link; record only observed outcomes.
+- [ ] Test the interactive agent through the published Vercel page and record only observed outcomes. API health and synthetic status were verified directly; that does not verify the embedded chat.
 - [ ] Record the one-minute video showing a grounded answer, workflow, actual action if connected, and safety triage.
 - [ ] Add participant/team information, video URL, reviewer instructions, and asset disclosure to the submission form.
 - [ ] Confirm the entry meets eligibility and official submission deadline.
 
-**Status:** Partially ready. Agent and page are configured, but API hosting with persistent storage, eGain action setup, and end-to-end validation remain pending.
+**Status:** Core demo is working: the agent, hosted persistent report API, and eGain report action are configured; eGain has returned successful demo report receipts. Submission is not complete until remaining behavior tests are recorded, the published embedded chat is checked, the demo video and form are completed, and eligibility/deadline are confirmed.
