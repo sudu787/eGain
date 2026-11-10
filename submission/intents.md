@@ -1,0 +1,10 @@
+# Intents
+
+| Intent | Description / example utterances | Required information | Behavior and workflow | Fallback |
+|---|---|---|---|---|
+| Report an outage | Resident wants to report no/partial power or flickering lights. “Report an outage in North Ridge.” | Fictional service area; issue category; explicit final confirmation | Start **Report an outage** process; create API record only after confirmation | If area/category unclear, ask once with choices; on action failure disclose no receipt and offer escalation |
+| Electrical safety | User reports downed wire, shock, sparks, fire, or other immediate hazard. | None before urgent guidance | Start **Safety triage**; provide approved immediate guidance and offer emergency/human path | If facts unclear, advise staying away and contacting emergency services for immediate danger |
+| Outage safety guidance | User asks about food, generator use, or preparing for an outage. | None | Answer from the matching knowledge article; optionally ask if they want to report a demo outage | State limits; escalate when source does not answer |
+| Medical/accessibility support | User says power loss affects an electric medical device or access need. | Immediate danger yes/no; do not solicit diagnosis or device specifics | Start **Safety triage**; immediate danger routes to local emergency services; otherwise recommend provider/local support and offer fictional escalation | No medical advice, eligibility claims, priority restoration promise, or priority record creation |
+| Outage status | User asks whether power is out or when it will return. | Optional fictional demo area only | Explain no live utility data; if explicitly requested, show only synthetic sample data with a prominent label | Never call sample records real or infer a restoration time |
+| Contact support | User asks for a person or wants to stop self-service. | Preferred fictional channel (email or phone), optional | Show both demo escalation options and clearly mark them as not monitored | For immediate danger, direct to local emergency services |

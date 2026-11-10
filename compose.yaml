@@ -1,0 +1,14 @@
+services:
+  gridguide-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      GRIDGUIDE_DB_PATH: /data/gridguide.sqlite3
+      GRIDGUIDE_ALLOWED_ORIGINS: ${GRIDGUIDE_ALLOWED_ORIGINS:-}
+    volumes:
+      - gridguide-data:/data
+    restart: unless-stopped
+
+volumes:
+  gridguide-data:
