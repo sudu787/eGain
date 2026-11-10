@@ -7,10 +7,11 @@ Tests in `tests/test_api.py` cover:
 - health and synthetic status disclosure;
 - report persistence and receipt disclosure;
 - idempotent retry and conflicting key reuse;
-- rejection of unknown areas and unexpected personal-data fields;
+- rejection of unknown areas, unsupported issue types, and unexpected personal-data fields;
+- bearer authentication rejects missing and incorrect keys while accepting the configured test key;
 - storage failure returning a recoverable `503`.
 
-**Result:** `docker build -f Dockerfile.test -t gridguide-tests .` succeeded after adding Postgres support; `docker run --rm gridguide-tests` completed with **5 passed**. Starlette emitted one deprecation warning about its `httpx`-based TestClient. The automated suite ran in Python 3.12 inside Docker and exercised the local SQLite path. Separately, the hosted eGain action successfully created two reports; that confirms successful production-path calls but does not replace automated Postgres failure, auth rejection, or retry tests.
+**Latest result (2026-11-10):** The updated suite completed with **6 passed** in the existing Python 3.12 `gridguide-tests` image, with the current `tests` folder mounted into the container. Starlette emitted one deprecation warning about its `httpx`-based TestClient. A fresh image build was attempted but Docker Hub timed out while fetching `python:3.12-slim`; the local Python command is unavailable. The passing run used the prebuilt image, whose application code matches the unchanged repository API source, plus the current mounted test file. Tests exercise local SQLite, not a live Postgres instance. Separately, the hosted eGain action successfully created two reports; that confirms successful production-path calls but does not replace tests for hosted Postgres outages or eGain workflow behavior.
 
 **Container smoke check:** `docker compose up -d --build` succeeded. `GET /healthz`, `GET /api/v1/demo/outages`, report creation, and receipt lookup all returned the expected results. The sample feed identified itself as synthetic/non-live; the report returned and then retrieved reference `GG-BEEBEB45DD` with the demo-only disclosure. This is a fictional local database record, not a utility submission.
 

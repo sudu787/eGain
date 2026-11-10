@@ -61,8 +61,33 @@ def test_invalid_area_and_extra_personal_fields_are_rejected(tmp_path, monkeypat
                 "account_number": "123456789",
             },
         )
+        invalid_issue = client.post(
+            "/api/v1/outage-reports",
+            json={"service_area": "Old Town", "issue_type": "unsafe"},
+        )
     assert unknown_area.status_code == 422
     assert personal_data.status_code == 422
+    assert invalid_issue.status_code == 422
+
+
+def test_bearer_auth_rejects_missing_and_wrong_keys(tmp_path, monkeypatch):
+    monkeypatch.setattr(main, "API_KEY", "local-test-secret")
+    with make_client(tmp_path, monkeypatch) as client:
+        payload = {"service_area": "North Ridge", "issue_type": "no_power"}
+        missing = client.post("/api/v1/outage-reports", json=payload)
+        wrong = client.post(
+            "/api/v1/outage-reports",
+            json=payload,
+            headers={"Authorization": "Bearer incorrect-secret"},
+        )
+        authorized = client.post(
+            "/api/v1/outage-reports",
+            json=payload,
+            headers={"Authorization": "Bearer local-test-secret"},
+        )
+    assert missing.status_code == 401
+    assert wrong.status_code == 401
+    assert authorized.status_code == 201
 
 
 def test_storage_failure_returns_recoverable_503(tmp_path, monkeypatch):
