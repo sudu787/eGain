@@ -27,6 +27,8 @@ The public Vercel page and API endpoints are reachable. An interactive test of t
 
 **Verified 2026-11-10:** A plain HTTP GET to `https://egain-lake.vercel.app/` returned `200` with HTML content. This confirms page availability only; it does not confirm that the embedded eGain chat loads, accepts messages, or can invoke the report action from that page.
 
+**Verified 2026-11-10 after commit `2aa203d`:** The live page returned `200` and its disclaimer now says it can save a fictional demo report, while making clear reports never reach a utility and live outage/restoration status is unavailable. Embedded chat behavior remains unverified.
+
 The following eGain behaviors remain unverified and should be tested in Test AI Agent and through the published link:
 
 1. Grounded answer: refrigerator and freezer guidance with FDA source.
