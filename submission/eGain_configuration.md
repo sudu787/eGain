@@ -22,6 +22,15 @@ The user supplied successful eGain action results for `GG-E8552A6085` (North Rid
 4. Fix the observed failure by routing the report intent through a process that repeats the fictional area/category, explains the demo-only write, asks a confirmation question, and pauses for the next user turn before calling the action. A first request is not confirmation.
 5. Test explicit yes and no responses, missing/invalid fields, action failure, duplicate behavior if supported, safety priority, live-status deferral, and the public embedded chat. Record only observed outcomes.
 
+## Required account repair after the failed confirmation test
+
+1. In **Personalize and Publish → Conversation Behavior**, add the mandatory separate-turn confirmation instructions from `agent_instructions.md`. The current agent skipped this gate even though the repository already specified confirmation.
+2. In **Enable Actions → Custom APIs → Create Demo Outage Report**, change the description to the confirmation-gated wording in `actions.md`. Replace direct initial-request sample questions with confirmed follow-up examples such as “Yes, create the demo report for North Ridge with no power.”
+3. In the report intent/workflow settings, route the report request through a process that gathers the area and issue, states the demo-only consequence, asks whether to proceed, waits for the next user message, and calls the API only after a clear yes. A first-turn request must not invoke the action.
+4. Retest with a new conversation. First request: “I have no power in North Ridge. Please report it.” Expected: a confirmation question and no `GG-` receipt. Reply “No”; expected: no API call. Start another conversation, repeat the request, then reply “Yes”; expected: one new demo receipt. If the action fires on the first message, the fix has not worked.
+
+Keep the verified endpoint, bearer credential, and request fields `service_area` / `issue_type` unchanged while fixing the turn order; the API action itself has already succeeded.
+
 ## Publication record
 
 - eGain account/agent identifier: **GridGuide / `0f41dd94-ba0f-4e1d-8f26-8796e56c7a5d`**
