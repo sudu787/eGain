@@ -18,7 +18,7 @@ Official form: https://www.egain.com/ai-agent-hackathon-project-submission/
 - [x] Local API test suite and Docker smoke test completed (see testing report; rerun before final hand-in if code changes).
 - [x] Provision persistent cloud Postgres and deploy the FastAPI app on Vercel; live health reports `report_store: configured`.
 - [x] Connect the synthetic report API through eGain Custom APIs; successful eGain calls returned receipts `GG-E8552A6085` and `GG-B5C218F450`.
-- [ ] In eGain, verify a customer report intent is connected to the process/action workflow, and that it asks for confirmation before creating a report.
+- [ ] Fix the failed confirmation gate in eGain: a normal outage request created `GG-10025D02E7` immediately without asking first. Connect the outage intent to a process workflow that summarizes the area/category, waits for a separate yes, and only then calls the API. Verify “No” creates no report.
 - [ ] Complete remaining eGain behavior checks: decline, invalid or missing fields, action failure, live-status deferral, medical/accessibility, and safety response quality.
 - [x] Capture the eGain demo URL and public Vercel page URL.
 - [ ] Test the interactive agent through the published Vercel page and record only observed outcomes. API health and synthetic status were verified directly; that does not verify the embedded chat.
@@ -26,4 +26,4 @@ Official form: https://www.egain.com/ai-agent-hackathon-project-submission/
 - [ ] Add participant/team information, video URL, reviewer instructions, and asset disclosure to the submission form.
 - [ ] Confirm eligibility and read both submission-form confirmations carefully. Do not affirm workflow testing or intent connection until observed in eGain and the published demo.
 
-**Status:** Core demo is working: the agent, hosted persistent report API, and eGain report action are configured; eGain has returned successful demo report receipts. Submission is not complete until remaining behavior tests are recorded, the published embedded chat is checked, the demo video and form are completed, and eligibility/deadline are confirmed.
+**Status:** The report API works, but the eGain report flow currently fails the confirmation safeguard: it created a record immediately from a normal request. Fix and retest the intent-connected process before presenting the report workflow as safe or submitting. The published embedded chat, remaining behavior tests, video, form, and eligibility checks also remain.

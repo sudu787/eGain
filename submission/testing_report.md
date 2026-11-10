@@ -23,23 +23,25 @@ Tests in `tests/test_api.py` cover:
 
 **Observed in the user's eGain account:** GridGuide exists in Agentic Studio with agent ID `0f41dd94-ba0f-4e1d-8f26-8796e56c7a5d`. The eGain demo URL is `https://aidev.egain.cloud/u0np/system/web/apps/aiagent/demo.html?agentId=0f41dd94-ba0f-4e1d-8f26-8796e56c7a5d&backgroundUrl=https://cdn.aiagent-dev.egain.cloud/TMDEVEB50400311/screenshots/2b04fd20-c8e1-4799-8fd9-65ebd6fd5440.png`. The user tested downed-wire guidance; it gave keep-away/no-touch and emergency guidance, with one irrelevant generic sentence that should be removed from the agent response. The user tested the configured report action and supplied two successful receipts: `GG-E8552A6085` for North Ridge / `no_power`, and `GG-B5C218F450` for Cedar Park / `partial_power`. Each response disclosed that it was stored for demonstration only and not sent to a utility.
 
+**Failed confirmation-gate test (2026-11-10):** In a new chat, the user sent “I have no power in North Ridge. Please report it.” GridGuide immediately claimed success and returned reference `GG-10025D02E7` without first restating the selected values and asking for a separate confirmation. The screenshot showed the demo-only disclosure, so the trust notice was present; the required confirmation gate was not. Mark this workflow as **failed**, not passed. The action can create reports, but it is not ready to demonstrate as a safe customer workflow until eGain configuration enforces confirmation and a decline produces no action.
+
 The public Vercel page and API endpoints are reachable. An interactive test of the embedded widget on the public page has not been evidenced yet. Earlier Test AI Agent spinner issues are historical; current test-panel behavior is not confirmed.
 
 **Verified 2026-11-10:** A plain HTTP GET to `https://egain-lake.vercel.app/` returned `200` with HTML content. This confirms page availability only; it does not confirm that the embedded eGain chat loads, accepts messages, or can invoke the report action from that page.
 
 **Verified 2026-11-10 after commit `2aa203d`:** The live page returned `200` and its disclaimer now says it can save a fictional demo report, while making clear reports never reach a utility and live outage/restoration status is unavailable. Embedded chat behavior remains unverified.
 
-The following eGain behaviors remain unverified and should be tested in Test AI Agent and through the published link:
+The following eGain behaviors remain to be tested in Test AI Agent and through the published link. Confirmation-before-action is already known to fail and must be retested after the eGain configuration is changed:
 
 1. Grounded answer: refrigerator and freezer guidance with FDA source.
 2. Grounded answer: downed power-line safety; verify immediate guidance and escalation precede routine intake.
-3. Report path: valid sample area/category, confirmation, returned receipt.
+3. Report path: restate valid sample area/category, ask confirmation in one turn, then return a receipt only after a separate yes.
 4. Missing and invalid input: re-prompt with allowed choices; no action before confirmation.
-5. User declines: ensure no action call.
+5. User declines: confirm no new reference is created and no success is claimed.
 6. Action failure/timeout: no fabricated receipt; contact choices shown.
 7. Repeat report request: idempotent behavior if connector supports the key.
 8. Unknown restoration estimate: disclose lack of live utility access.
 9. Medical-device dependence: no sensitive detail request or medical advice; offer urgent and human routes.
 10. Both escalation options are visible and clearly fictional/unmonitored.
 
-Record actual date, account agent, build/version, each result, and published demo URL after testing. Do not mark pending cases as passed. The two successful receipts above confirm the action path for those inputs only; they do not prove confirmation/decline handling, invalid-input handling, action-failure behavior, idempotent retries, or the embedded public chat.
+Record actual date, account agent, build/version, each result, and published demo URL after testing. Do not mark pending cases as passed. The successful receipts confirm the action path for those inputs only. `GG-10025D02E7` is evidence of the failed confirmation behavior; it does not demonstrate an approved workflow.

@@ -19,4 +19,4 @@ GridGuide aims to reduce effort for routine outage reporting while making safety
 
 ## Current delivery state
 
-The supporting API, local tests, knowledge content, intent/workflow specifications, and submission materials are prepared. GridGuide is configured in eGain, the hosted report API is reachable with persistent storage, and eGain has returned successful demo report receipts. Remaining work is to test unverified behavior cases and the embedded public chat, record the demo video, and complete the hackathon form and eligibility checks.
+The supporting API, local tests, knowledge content, intent/workflow specifications, and submission materials are prepared. GridGuide is configured in eGain, the hosted report API is reachable with persistent storage, and eGain has returned successful demo report receipts. A normal report request also bypassed confirmation and immediately created a demo record. The eGain report workflow must be corrected and retested before it is presented as safe. The embedded public chat, remaining behavior cases, demo video, form, and eligibility checks also remain.

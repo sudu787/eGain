@@ -17,4 +17,4 @@ Start “Report an outage.” Choose “North Ridge” and “no power.” Confi
 **0:50–1:00 — Trust boundary and close**  
 Show the demo-only notice and both fictional escalation options. Narration: “The report is persisted in the demo database, not sent to a utility. GridGuide knows what it can do—and when a person or emergency service is the right next step.”
 
-The report action has already returned successful demo receipts in eGain. Before recording, verify the published embedded chat can perform the same action, and capture the real response. Do not stage a fake success. If the embedded chat cannot perform it, disclose that limitation and show only the verified eGain action result.
+The report action has returned successful demo receipts, but a normal outage request also bypassed confirmation and created a report. Do not record the report workflow until that safeguard is fixed and verified in both Test AI Agent and the published chat. Afterward, capture the real response; do not stage a fake success. If the embedded chat cannot perform the workflow, disclose that limitation and show only verified capabilities.

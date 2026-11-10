@@ -22,7 +22,7 @@ Deadline listed by eGain: **November 15, 2026 at 11:59 PM Pacific Time**. Check 
 
 ## Capabilities
 
-Select only capabilities you have verified in the account and through the published demo. The report action has returned successful receipts. Knowledge answers and the agent demo link have also been observed. Pre-chat workflow availability and intent-connected process workflow behavior are not yet verified; do not select or claim those until tested.
+Select only capabilities you have verified in the account and through the published demo. Knowledge answers and the action call have been observed, but the report workflow currently fails: a natural-language request created `GG-10025D02E7` without asking for confirmation. Pre-chat workflow availability and intent-connected process workflow behavior are not yet verified. Do not claim or affirm workflow safety until the process is fixed and retested.
 
 ## Demo and evidence
 

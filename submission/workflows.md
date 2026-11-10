@@ -12,14 +12,15 @@
 
 **Entry intent:** Report an outage.  
 **Inputs:** allowlisted service area, issue category.  
-**Confirmation:** restate values; clearly warn the user this creates a fictional demo record only; require explicit yes before the API call.
+**Confirmation:** after gathering values, restate them and clearly warn the user this creates a fictional demo record only. Ask for explicit yes, then wait for a separate user reply before the API call. An initial request such as “please report it” is not confirmation.
 
 1. If a required choice is missing, ask with the allowed choices. If invalid, explain and re-ask once.
 2. If the user mentions an immediate safety hazard, pause this process and transfer to Safety triage.
-3. On explicit confirmation, call the configured create-report action with only `service_area` and `issue_type`, plus an idempotency key if supported.
-4. On confirmed success, show the returned reference and repeat that it was saved only in the demo database, not sent to a utility.
-5. On timeout, validation failure, or API failure, say no receipt was confirmed. Offer the fictional email and phone options. Do not retry automatically unless the integration guarantees idempotency.
-6. If the user declines, stop without calling the action.
+3. Once both choices are known, summarize them, state the demo-only consequence, ask “Should I create this demo report now?”, and stop. Do not call the action in that turn.
+4. Only after an unambiguous affirmative in the next user turn, call the configured create-report action with only `service_area` and `issue_type`, plus an idempotency key if supported.
+5. On confirmed success, show the returned reference and repeat that it was saved only in the demo database, not sent to a utility.
+6. On timeout, validation failure, or API failure, say no receipt was confirmed. Offer the fictional email and phone options. Do not retry automatically unless the integration guarantees idempotency.
+7. If the user declines, stops responding, or changes the subject before confirming, stop without calling the action.
 
 ## Process: Safety triage
 
