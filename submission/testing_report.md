@@ -24,6 +24,8 @@ Tests in `tests/test_api.py` cover:
 
 The public Vercel page and API endpoints are reachable. An interactive test of the embedded widget on the public page has not been evidenced yet. Earlier Test AI Agent spinner issues are historical; current test-panel behavior is not confirmed.
 
+**Verified 2026-11-10:** A plain HTTP GET to `https://egain-lake.vercel.app/` returned `200` with HTML content. This confirms page availability only; it does not confirm that the embedded eGain chat loads, accepts messages, or can invoke the report action from that page.
+
 The following eGain behaviors remain unverified and should be tested in Test AI Agent and through the published link:
 
 1. Grounded answer: refrigerator and freezer guidance with FDA source.
