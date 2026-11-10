@@ -11,7 +11,7 @@ During a power interruption, people often need two things at once: clear, reliab
 
 ## GridGuide experience
 
-GridGuide uses a small set of original, source-linked safety articles. Its eGain Custom API has successfully created persistent fictional reports in the supporting API. Every receipt clearly says the report was stored only in the demo system. The sample status feed is labeled synthetic and is never described as live.
+GridGuide uses a small set of original, source-linked safety articles. Its eGain Custom API has successfully created persistent fictional reports in the supporting API. Every receipt clearly says the report was stored only in the demo system. The sample status feed is labeled synthetic and is never described as live. Formal intent-to-process workflow wiring and confirmation-before-action behavior still need to be verified in the account.
 
 ## Value hypothesis
 
