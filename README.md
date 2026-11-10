@@ -12,7 +12,7 @@ Requires Docker Desktop with the Linux engine running.
 docker compose up --build
 ```
 
-Then open `http://localhost:8000/docs`. Health is available at `/healthz`; the synthetic status feed is `/api/v1/demo/outages`.
+Then open `http://localhost:8000/api/docs`. Health is available at `/healthz` (and `/api/healthz`); the synthetic status feed is `/api/v1/demo/outages`.
 
 Run the isolated API test suite with:
 

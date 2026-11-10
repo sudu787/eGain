@@ -1,6 +1,6 @@
 # GridGuide demonstration API
 
-Local base URL: `http://localhost:8000`. OpenAPI UI: `/docs`. The public page is `https://egain-lake.vercel.app/`; the API routes will use the same host after the FastAPI deployment is active.
+Local base URL: `http://localhost:8000`. OpenAPI UI: `/api/docs`. The public page is `https://egain-lake.vercel.app/`; its API uses the same host.
 
 ## `GET /healthz`
 

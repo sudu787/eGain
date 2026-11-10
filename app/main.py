@@ -132,6 +132,9 @@ app = FastAPI(
     ),
     version="1.0.0",
     lifespan=lifespan,
+    docs_url="/api/docs",
+    redoc_url="/api/redoc",
+    openapi_url="/api/openapi.json",
 )
 
 if ALLOWED_ORIGINS:
@@ -144,7 +147,8 @@ if ALLOWED_ORIGINS:
     )
 
 
-@app.get("/healthz", tags=["service"])
+@app.get("/healthz", tags=["service"], include_in_schema=False)
+@app.get("/api/healthz", tags=["service"])
 def health_check() -> dict[str, str]:
     return {
         "status": "ok",
